@@ -9,10 +9,7 @@
   },
   "scripts": {
     "clean": "rm -rf .nyc_output coverage lib",
-    "build": "tsc",
-    "upgrade": "npm-check -u && npm audit fix",
-    "bump": "bump --tag --push --all",
-    "release": "npm run upgrade && npm run clean && npm run build && npm version patch && npm publish"
+    "build": "tsc"
   },
   "engines": {
     "node": ">=10"
@@ -44,16 +41,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/byjus-orders/nucleus-gateway-cli.git"
+    "url": "git+https://github.com/Karthikmani345/nucleus-gateway-cli.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/byjus-orders/nucleus-gateway-cli/issues"
+    "url": "https://github.com/Karthikmani345/nucleus-gateway-cli/issues"
   },
-  "homepage": "https://github.com/byjus-orders/nucleus-gateway-cli#readme"
+  "homepage": "https://github.com/Karthikmani345/nucleus-gateway-cli#readme"
 }

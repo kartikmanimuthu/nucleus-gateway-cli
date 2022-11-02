@@ -1,62 +1,49 @@
-# nucleus-gateway
+# nucleus-gateway-cli
 
-nucleus-gateway is a node command line interface (CLI) which is a reverse proxy server.
+### nucleus-gateway-cli is a zero code reverse proxy server embeded as a cli to ace the local development. 
 
-nucleus-gateway  **requires**  `gateway-config.yaml` or `gateway-config.json` as an input in the cli.
 
-[![NPM version](https://badge.fury.io/js/nucleus-gateway.svg)](https://npm.pkg.github.com/nucleus-gateway)
+[![NPM version](https://badge.fury.io/js/nucleus-gateway-cli.svg)](https://registry.npmjs.org/nucleus-gateway-cli)
 
 
 # Installation
 
 Either through cloning with git or by using [npm](http://npmjs.org) (the recommended way):
-## Installing scoped packages globally
-
-Create a `.npmrc` file in the system root directory and configure as below with the auth token to install any scoped global dependency.  
+## Installing packages globally
 
 ```bash
-registry=https://registry.npmjs.org/
-@byjus-orders:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=<XXXXXXXXXX>
+npm install -g nucleus-gateway-cli
 ```
 
-**Note** if the `.npmrc` file is omitted, npm will instead attempt to install from https://registry.npmjs.org 
+nucleus-gateway-cli will be installed globally to your system path.
 
-
-```bash
-npm install -g @byjus-orders/nucleus-gateway
-```
-
-And nucleus-gateway will be installed globally to your system path.
-
-## Installing scoped packages as development dependency
-
-You can also install nucleus-gateway as a development dependency:
-
-```bash
-npm install --save-dev @byjus-orders/nucleus-gateway
-```
-
-With a local installation, nucleus-gateway will not be available in your system path or you can't use it directly from the command line. Instead, the local installation of nucleus-gateway can be run by calling it from within an npm script such as `npm start` (example : `"gateway": "nucleus-gateway -f ../gateway-config.yaml"`).
 
 # Usage
 
 ![Alt text](./assets/demo_cli.gif)
 
-Start nucleus-gateway with the below commands:
+Start nucleus-gateway-cli with the below commands:
 
 ```bash
-nucleus-gateway --file path/to/gateway-config.[yaml|json]
+nucleus-gateway-cli --file path/to/gateway-config.[yaml|json]
+```
+
+Execute nucleus-gateway-cli with npx commands:
+
+```bash
+npx nucleus-gateway-cli --file path/to/gateway-config.[yaml|json]
 ```
 
 For CLI options, use the `--help` argument:
 
 ```bash
-nucleus-gateway --help
+nucleus-gateway-cli --help
 ```
 
 
 # Configuration
+
+**Warning** : nucleus-gateway-cli **requires**  `gateway-config.yaml` or `gateway-config.json` as an input to the cli.
 
 Create a yaml file `gateway-config.yaml` in your file system and configure rules in the below format:
 
@@ -65,17 +52,17 @@ http:
   port: 3000    
 
 service-endpoints: 
-  ums-service:
-    path: '/nucleusapi/usermanagement/'  
+  payment-service:
+    path: '/api/payment/'  
     protocol: 'http'                     
     host: 'localhost'                    
     port: 9005                           
     changeOrigin: true                   
 
-  oms-service:
-    path: '/nucleusapi/ordermanagement/'
+  order-service:
+    path: '/api/order/'
     protocol: 'https'
-    host: 'dev-nucleus.byjusorders.com'
+    host: 'order.foo.com'
     changeOrigin: true        
 
 policies:
@@ -91,17 +78,17 @@ Create a json file `gateway-config.json` in your file system and configure rules
         "port": 3000
     },
     "service-endpoints": {
-        "ums-service": {
-            "path": "/nucleusapi/usermanagement/",
+        "payment-service": {
+            "path": "/api/payment/",
             "protocol": "http",
             "host": "localhost",
             "port": 9005,
             "changeOrigin": true
         },
-        "oms-service": {
-            "path": "/nucleusapi/ordermanagement/",
+        "order-service": {
+            "path": "/api/order/",
             "protocol": "https",
-            "host": "dev-nucleus.byjusorders.com",
+            "host": "order.foo.com",
             "changeOrigin": true
         }
     },
