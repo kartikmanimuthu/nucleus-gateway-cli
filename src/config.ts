@@ -1,5 +1,5 @@
 const configuration = {
-    commandLineInterface: 'nucleus-gateway',
+    commandLineInterface: 'nucleus-gateway-cli',
     defualtTemplateArtifact: ['../', 'templates', 'gateway-config.yaml'],
     supportedFileExtension: ['.json', '.yaml'],
     supportedFileName: ['gateway-config'],
