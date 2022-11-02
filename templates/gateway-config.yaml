@@ -18,7 +18,7 @@ service-endpoints:
   support-service:
     path: '/api/support/'
     protocol: 'https'
-    host: 'localhost',
+    host: 'localhost'
     port: 9007
     changeOrigin: true        
 
