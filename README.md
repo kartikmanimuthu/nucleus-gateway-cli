@@ -1,6 +1,6 @@
 # nucleus-gateway-cli
 
-### nucleus-gateway-cli is a zero code reverse proxy server embeded as a cli to ace the local development. 
+#### Nucleus gateway CLI is a zero code reverse proxy server embeded as a cli to ace the local environment. 
 
 
 [![NPM version](https://badge.fury.io/js/nucleus-gateway-cli.svg)](https://registry.npmjs.org/nucleus-gateway-cli)
