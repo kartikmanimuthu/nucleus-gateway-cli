@@ -1,0 +1,66 @@
+{
+    "http": {
+        "port": 3000
+    },
+    "service-endpoints": {
+        "ums-service": {
+            "path": "/nucleusapi/usermanagement/",
+            "protocol": "http",
+            "host": "localhost",
+            "port": 9005,
+            "changeOrigin": true
+        },
+        "oms-service": {
+            "path": "/nucleusapi/ordermanagement/",
+            "protocol": "https",
+            "host": "dev-nucleus.byjusorders.com",
+            "changeOrigin": true
+        },
+        "poms-service": {
+            "path": "/nucleusapi/postordermanagement/",
+            "protocol": "http",
+            "host": "localhost",
+            "port": 9003,
+            "changeOrigin": true
+        },
+        "lms-service": {
+            "path": "/nucleusapi/loanmanagement/",
+            "protocol": "https",
+            "host": "dev-nucleus.byjusorders.com",
+            "changeOrigin": true
+        },
+        "stms-service": {
+            "path": "/nucleusapi/studentmanagement/",
+            "protocol": "https",
+            "host": "dev-nucleus.byjusorders.com",
+            "changeOrigin": true
+        },
+        "batch-management-service": {
+            "path": "/nucleusapi/batchmanagement/",
+            "protocol": "https",
+            "host": "dev-nucleus.byjusorders.com",
+            "changeOrigin": true
+        },
+        "byjus-config-service": {
+            "path": "/nucleusapi/byjusconfig/",
+            "protocol": "https",
+            "host": "dev-nucleus.byjusorders.com",
+            "changeOrigin": true
+        },
+        "support-service": {
+            "path": "/nucleusapi/support/",
+            "protocol": "https",
+            "host": "dev-nucleus.byjusorders.com",
+            "changeOrigin": true
+        },
+        "default-service": {
+            "path": "/nucleusapi/",
+            "protocol": "https",
+            "host": "dev-nucleus.byjusorders.com",
+            "changeOrigin": true
+        }
+    },
+    "policies": [
+        "proxy"
+    ]
+}
