@@ -3,7 +3,7 @@ import { transform, isArray, isObject, camelCase } from 'lodash';
 
 
 export async function readFileIfExist(artifactPath: string, encoding: string = 'utf-8') {
-    let fileExist = await pathExists(artifactPath);
+    const fileExist = await pathExists(artifactPath);
     if (!fileExist) {
         throw new Error(`filepath : ${artifactPath} does not exist !`);
     }
