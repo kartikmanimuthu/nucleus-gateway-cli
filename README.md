@@ -12,15 +12,18 @@ The tool boosts productivity by handling the intricacies of traffic routing, all
 
 The recommended method of installation is via npm, though cloning with git is also an option.
 
-### Installing Globally
+### Installing from Local Directory
 
-To install Nucleus Gateway CLI globally, use the following command:
+To install Nucleus Gateway CLI from a local directory, navigate to the directory containing the package and use the following command:
 
 ```bash
-npm install -g nucleus-gateway-cli
+cd path/to/nucleus-gateway-cli
+npm install -g .
 ```
 
-With this, `nucleus-gateway-cli` will be accessible globally from your system's path.
+This command installs Nucleus Gateway CLI globally. After executing this command, `nucleus-gateway-cli` will be accessible globally from your system's path.
+
+Replace `path/to/nucleus-gateway-cli` with the actual path to the directory containing the Nucleus Gateway CLI package.
 
 ## Usage
 
