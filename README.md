@@ -1,152 +1,134 @@
-# nucleus-gateway-cli
+# Nucleus Gateway CLI
 
-#### Nucleus gateway CLI is a zero code reverse proxy server embeded as a cli to ace the local environment. 
+**Nucleus Gateway CLI** is a versatile, code-free reverse proxy server tool encapsulated as a command-line interface (CLI), specifically tailored to enhance local microservices-based development environments.
 
+Born out of a need to simplify the orchestration of multiple microservices, this CLI tool operates seamlessly in the background as a daemon, contributing to a clean and distraction-free workspace. It enhances usability by being service-agnostic, allowing flexibility across various service configurations.
+
+The tool boosts productivity by handling the intricacies of traffic routing, allowing developers to concentrate on coding. Its implementation draws inspiration from Express Gateway, but with a more minimalistic design requiring less configuration. Incorporating CLI for Nucleus Gateway into your workflow will significantly streamline processes, reduce complexities, and bolster productivity. For developers navigating a microservices-based local setup, this tool is indispensable.
 
 [![NPM version](https://badge.fury.io/js/nucleus-gateway-cli.svg)](https://registry.npmjs.org/nucleus-gateway-cli)
 
+## Installation
 
-# Installation
+The recommended method of installation is via npm, though cloning with git is also an option.
 
-Either through cloning with git or by using [npm](http://npmjs.org) (the recommended way):
-## Installing packages globally
+### Installing Globally
+
+To install Nucleus Gateway CLI globally, use the following command:
 
 ```bash
 npm install -g nucleus-gateway-cli
 ```
 
-nucleus-gateway-cli will be installed globally to your system path.
+With this, `nucleus-gateway-cli` will be accessible globally from your system's path.
 
+## Usage
 
-# Usage
+![CLI Demo](./assets/demo_cli.gif)
 
-![Alt text](./assets/demo_cli.gif)
-
-Start nucleus-gateway-cli with the below commands:
+You can start `nucleus-gateway-cli` by executing the following command:
 
 ```bash
 nucleus-gateway-cli --file path/to/gateway-config.[yaml|json]
 ```
 
-Execute nucleus-gateway-cli with npx commands:
+To execute `nucleus-gateway-cli` with npx, use the following command:
 
 ```bash
 npx nucleus-gateway-cli --file path/to/gateway-config.[yaml|json]
 ```
 
-For CLI options, use the `--help` argument:
+For additional CLI options, append the `--help` argument:
 
 ```bash
 nucleus-gateway-cli --help
 ```
 
+## Configuration
 
-# Configuration
+**Note:** Nucleus Gateway CLI **requires** a `gateway-config.yaml` or `gateway-config.json` input file.
 
-**Warning** : nucleus-gateway-cli **requires**  `gateway-config.yaml` or `gateway-config.json` as an input to the cli.
+To configure, create either a `gateway-config.yaml` or `gateway-config.json` file in your local file system and establish rules according to the examples provided below.
 
-Create a yaml file `gateway-config.yaml` in your file system and configure rules in the below format:
+**YAML Example:**
 
 ```yaml
 http:
-  port: 3000    
+  port: 3000
 
-service-endpoints: 
+service-endpoints:
   payment-service:
-    path: '/api/payment/'  
-    protocol: 'http'                     
-    host: 'localhost'                    
-    port: 9005                           
-    changeOrigin: true                   
+    path: "/api/payment/"
+    protocol: "http"
+    host: "localhost"
+    port: 9005
+    changeOrigin: true
 
   order-service:
-    path: '/api/order/'
-    protocol: 'https'
-    host: 'order.foo.com'
-    changeOrigin: true        
+    path: "/api/order/"
+    protocol: "https"
+    host: "order.foo.com"
+    changeOrigin: true
 
 policies:
-  - proxy   
-
+  - proxy
 ```
 
-Create a json file `gateway-config.json` in your file system and configure rules in the below format:
+**JSON Example:**
 
 ```json
 {
-    "http": {
-        "port": 3000
+  "http": {
+    "port": 3000
+  },
+  "service-endpoints": {
+    "payment-service": {
+      "path": "/api/payment/",
+      "protocol": "http",
+      "host": "localhost",
+      "port": 9005,
+      "changeOrigin": true
     },
-    "service-endpoints": {
-        "payment-service": {
-            "path": "/api/payment/",
-            "protocol": "http",
-            "host": "localhost",
-            "port": 9005,
-            "changeOrigin": true
-        },
-        "order-service": {
-            "path": "/api/order/",
-            "protocol": "https",
-            "host": "order.foo.com",
-            "changeOrigin": true
-        }
-    },
-    "policies": [
-        "proxy"
-    ]
+    "order-service": {
+      "path": "/api/order/",
+      "protocol": "https",
+      "host": "order.foo.com",
+      "changeOrigin": true
+    }
+  },
+  "policies": ["proxy"]
 }
 ```
-# Documentation
 
-## http
+## Documentation
 
-#### port (Number)
+Below are the various configuration options that can be used in the `gateway-config` file.
 
-Gateway will listen for http requests on port.
+### http
 
-## service-endpoints (object)
+- **port** (Number): The port on which the gateway will listen for HTTP requests.
 
-Register the services with the unique userdefined name in the order.
+### service-endpoints (object)
 
-#### path (String)
+Register services in the specified order with unique user-defined names.
 
-Uri to match.
+- **path** (String): The URI to match.
+- **protocol** (String): The protocol to forward to.
+- **host** (String): The host to forward to.
+- **port** (Optional String): The port to forward to (optional).
+- **changeOrigin** (Boolean): Enable changing the base origin.
 
-#### protocol (String)
+### policies (Optional Array)
 
-Forward to protocol.                      
+Add various policies to the gateway.
 
-#### host (String)
+- **proxy** (String): Enable proxying.
+- **log** (String): Enable logging.
 
-Forward to host.
+### Placeholder Strings
 
-#### port (?String)
+- `[--file, -f]` - File path of the configuration file
+- `[--help]` - Show help
+- `[--version]` - Show version number
 
-Forward to port (optional).
-
-
-#### changeOrigin (Boolean)
-
-Change the base origin
-
-
-## policies (?Array)
-
-Add policies to the gateway.
-
-#### proxy (String)
-
-Enable proxying.                      
-
-#### log (String)
-
-Enable logging.                      
-
-### Placeholder strings
-
-Name | Description
---- | ---
-`[--file, -f]` | File path of the configuration file
-`[--help]` | Show help
-`[--version]` | Show version number
+With Nucleus Gateway CLI, you'll streamline your development workflow, making it more efficient and productive. If you have any questions or need help, feel free to open an issue in our repository.
